@@ -1,0 +1,10 @@
+.peopleBlock {
+  border-radius: 0.625rem;
+  width: clamp(2.5rem, 6vw, 3rem);
+  height: clamp(2.5rem, 6vw, 3rem);
+  background-color: #fbc75e;
+  transform: rotate(-15deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,10 @@
+.questionBlock {
+  border-radius: 0.625rem;
+  width: clamp(2rem, 5vw, 2.5rem);
+  height: clamp(2rem, 5vw, 2.5rem);
+  background-color: #54be96;
+  transform: rotate(15deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
