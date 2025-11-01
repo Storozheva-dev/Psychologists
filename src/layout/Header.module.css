@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(25, 26, 21, 0.1);
+}
+.nav {
+  padding-left: 130px;
+  padding-right: 345px;
+}
+.logo {
+  margin-left: 128px;
+}
+.authButtons {
+  display: flex;
+  gap: 8px;
+}
+.logBtn {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  border-radius: 30px;
+  padding: 14px 39px;
+  width: 124px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #191a15;
+  transition: all 0.3s ease;
+}
+.logBtn:hover {
+  border-color: #fc832c;
+}
+.logBtn:active {
+  scale: 0.9;
+}
+.regBtn {
+  display: flex;
+  align-items: center;
+  background: #fc832c;
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 171px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  transition: all 0.3s ease;
+}
+.regBtn:hover {
+  background: #f37113;
+}
+.regBtn:active {
+  scale: 0.9;
+}

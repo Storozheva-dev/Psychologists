@@ -7,6 +7,10 @@
   align-items: center;
   gap: clamp(0.75rem, 2vw, 1rem);
   padding-inline: clamp(1rem, 3vw, 1.5rem);
+  position: absolute;
+  z-index: 100;
+  top: 400px;
+  right: 30px;
 }
 
 .heroIcon {

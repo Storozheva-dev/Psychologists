@@ -1,9 +1,9 @@
 import css from "./QuestionBlock.module.css";
 import { QuestionMark } from "../../icons";
 
-const QuestionBlock = () => {
+const QuestionBlock = ({ className = "" }) => {
   return (
-    <div className={css.questionBlock}>
+    <div className={`${css.questionBlock} ${className}`}>
       <QuestionMark />
     </div>
   );

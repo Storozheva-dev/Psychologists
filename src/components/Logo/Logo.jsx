@@ -1,9 +1,10 @@
 import css from "./Logo.module.css";
 
-const Logo = () => {
+const Logo = ({ className = "" }) => {
   return (
-    <p className={css.logo}>
+    <p className={`${css.logo} ${className}`}>
       psychologists.<span className={css.partLogo}>services</span>
     </p>
   );
 };
+export default Logo;

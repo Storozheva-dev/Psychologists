@@ -1,0 +1,63 @@
+.imgWrap {
+  position: relative;
+  aspect-ratio: 1/1;
+  /* overflow: hidden; */
+}
+.photo {
+  position: relative;
+  width: 464px;
+  height: 526px;
+
+  border-radius: 10px;
+}
+.tab {
+  position: absolute;
+  z-index: 100;
+  top: 200px;
+  left: 0;
+}
+.stat {
+  position: absolute;
+  left: 16px;
+  bottom: 22px;
+}
+.badge {
+  position: absolute;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.12));
+}
+.badgeLeft {
+  left: -8px;
+  top: 38%;
+}
+.badgeRight {
+  right: -6px;
+  top: 8%;
+  transform: rotate(15deg);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.03);
+  }
+}
+@keyframes fadeInOnce {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadePulse {
+  animation: pulse 3.2s ease-in-out infinite;
+}
+.fadeIn {
+  animation: fadeInOnce 0.6s ease-out both 0.2s;
+}

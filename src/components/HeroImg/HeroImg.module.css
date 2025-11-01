@@ -1,7 +1,4 @@
 .heroImg {
-  position: relative;
-  width: 100%;
-
   background-image: image-set(
     url("../../assets/HeroImg.png") 1x,
     url("../../assets/heroImg2X.png") 2x
