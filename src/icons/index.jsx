@@ -62,14 +62,21 @@ export const CheckMarkIcon = (props) => (
 
 export const CloseIcon = (props) => (
   <svg
-    width="19"
-    height="19"
-    viewBox="0 0 19 19"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M1.25 1.25L17.25 17.25"
+      d="M24 8L8 24"
+      stroke="#191A15"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M8 8L24 24"
       stroke="#191A15"
       stroke-width="2.5"
       stroke-linecap="round"

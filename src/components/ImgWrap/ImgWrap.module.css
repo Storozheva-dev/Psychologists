@@ -10,12 +10,12 @@
 
   border-radius: 10px;
 }
-.tab {
+/* .tab {
   position: absolute;
   z-index: 100;
   top: 200px;
   left: 0;
-}
+} */
 .stat {
   position: absolute;
   left: 16px;

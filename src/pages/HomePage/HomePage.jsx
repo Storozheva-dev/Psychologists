@@ -4,12 +4,14 @@ import Loader from "../../components/Loader/Loader.jsx";
 import Container from "../../components/Container/Container.jsx";
 import { ArrowButton } from "../../icons/index.jsx";
 import ImgWrap from "../../components/ImgWrap/ImgWrap.jsx";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
     <>
       <Container>
         <div className={css.wrap}>
+          <div className={css.glowCircle}></div>
           <div className={css.infoWrap}>
             <h1 className={css.title}>
               The road to the <span className={css.titleSpan}>depths</span> of
@@ -20,10 +22,10 @@ const HomePage = () => {
               a guide in your own life with the help of our experienced
               psychologists.
             </p>
-            <button className={css.btn}>
+            <Link className={css.btn} to="/psychologists">
               Get started
               <ArrowButton />
-            </button>
+            </Link>
           </div>
 
           <ImgWrap />

@@ -2,7 +2,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 78px;
+  margin-bottom: 100px;
+  align-items: center;
+  position: relative;
 }
+.glowCircle {
+  position: absolute;
+  top: -20%;
+  left: 10%;
+  width: 2000px;
+  height: 800px;
+  background: radial-gradient(circle, #fc832c 0%, transparent 30%);
+  filter: blur(100px);
+  opacity: 0.9;
+  z-index: -1;
+  overflow: hidden;
+}
+
 .infoWrap {
   width: 595px;
 }
