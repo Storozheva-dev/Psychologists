@@ -71,16 +71,16 @@ export const CloseIcon = (props) => (
     <path
       d="M24 8L8 24"
       stroke="#191A15"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M8 8L24 24"
       stroke="#191A15"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -97,16 +97,16 @@ export const OpenEyeIcon = (props) => (
       <path
         d="M0.833984 10C0.833984 10 4.16732 3.33334 10.0007 3.33334C15.834 3.33334 19.1673 10 19.1673 10C19.1673 10 15.834 16.6667 10.0007 16.6667C4.16732 16.6667 0.833984 10 0.833984 10Z"
         stroke="#191A15"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
         stroke="#191A15"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>
@@ -129,16 +129,16 @@ export const ClosedEyeIcon = (props) => (
       <path
         d="M14.9507 14.95C13.5261 16.0358 11.7916 16.6374 10.0007 16.6667C4.16732 16.6667 0.833984 10 0.833984 10C1.87056 8.06825 3.30826 6.38051 5.05065 5.05M8.25065 3.53333C8.82426 3.39907 9.41154 3.33195 10.0007 3.33333C15.834 3.33333 19.1673 10 19.1673 10C18.6615 10.9463 18.0582 11.8373 17.3673 12.6583M11.7673 11.7667C11.5384 12.0123 11.2624 12.2093 10.9558 12.3459C10.6491 12.4826 10.3181 12.556 9.98239 12.562C9.64672 12.5679 9.31329 12.5061 9.00199 12.3804C8.6907 12.2547 8.40792 12.0675 8.17052 11.8301C7.93313 11.5927 7.74598 11.31 7.62024 10.9987C7.49451 10.6874 7.43276 10.3539 7.43868 10.0183C7.4446 9.68258 7.51808 9.35154 7.65472 9.04487C7.79136 8.73821 7.98836 8.46221 8.23399 8.23333"
         stroke="#191A15"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M0.833984 0.833336L19.1673 19.1667"
         stroke="#191A15"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>
@@ -176,7 +176,7 @@ export const StarIcon = (props) => (
       d="M8.88965 4.12573C9.0488 4.42725 9.33887 4.63786 9.6748 4.69604L13.4746 5.35229L10.7871 8.11987C10.5496 8.36444 10.4388 8.70526 10.4873 9.04272L11.0361 12.8601L7.5752 11.1589L7.45801 11.1091C7.21993 11.0245 6.95976 11.0245 6.72168 11.1091L6.60449 11.1589L3.14258 12.8601L3.69238 9.04272C3.74091 8.70526 3.6301 8.36444 3.39258 8.11987L0.704102 5.35229L4.50488 4.69604C4.84082 4.63786 5.13088 4.42725 5.29004 4.12573L7.08984 0.7146L8.88965 4.12573Z"
       fill="#FFC531"
       stroke="#FFC531"
-      stroke-width="1.2"
+      strokeWidth="1.2"
     />
   </svg>
 );
@@ -192,9 +192,9 @@ export const HeartIcon = (props) => (
     <path
       d="M22.5766 4.99416C22.0233 4.44058 21.3663 4.00144 20.6433 3.70184C19.9202 3.40223 19.1452 3.24802 18.3625 3.24802C17.5798 3.24802 16.8047 3.40223 16.0817 3.70184C15.3586 4.00144 14.7016 4.44058 14.1483 4.99416L13 6.14249L11.8516 4.99416C10.734 3.87649 9.21809 3.2486 7.63747 3.2486C6.05685 3.2486 4.54097 3.87649 3.4233 4.99416C2.30563 6.11183 1.67773 7.62771 1.67773 9.20833C1.67773 10.7889 2.30563 12.3048 3.4233 13.4225L4.57163 14.5708L13 22.9992L21.4283 14.5708L22.5766 13.4225C23.1302 12.8692 23.5693 12.2122 23.869 11.4891C24.1686 10.766 24.3228 9.99102 24.3228 9.20833C24.3228 8.42563 24.1686 7.65061 23.869 6.92753C23.5693 6.20445 23.1302 5.54748 22.5766 4.99416Z"
       stroke="#191A15"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

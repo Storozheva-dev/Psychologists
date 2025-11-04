@@ -9,6 +9,9 @@
   display: grid;
   -webkit-mask: linear-gradient(#000 0 0);
   animation: l30 2s infinite linear;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 .loader::before,
 .loader::after {
