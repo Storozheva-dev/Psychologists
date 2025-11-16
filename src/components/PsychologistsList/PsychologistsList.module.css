@@ -28,3 +28,7 @@
   align-items: center;
   flex-direction: column;
 }
+.loadMore:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

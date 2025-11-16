@@ -56,3 +56,42 @@
 .regBtn:active {
   scale: 0.9;
 }
+.logOutBtn {
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  border-radius: 30px;
+  height: 48px;
+  width: 135px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #191a15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.logOutBtn:hover {
+  border-color: #fc832c;
+}
+.logOutBtn:active {
+  scale: 0.9;
+}
+.userBlock {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.userIcon {
+  background: #fc832c;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding: 8px;
+}

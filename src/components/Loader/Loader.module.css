@@ -2,7 +2,7 @@
 .loader {
   --R: 30px;
   --g1: #fc832c 96%, #0000;
-  --g2: #eeeeee 96%, #0000;
+  --g2: #fbfbfb 96%, #0000;
   width: calc(2 * var(--R));
   aspect-ratio: 1;
   border-radius: 50%;

@@ -178,3 +178,15 @@
 .makeAppointment:active {
   transform: scale(0.9);
 }
+.heart {
+  transition: all 0.3s ease;
+}
+.heart:hover {
+  scale: 1.1;
+}
+.heart:active {
+  scale: 0.9;
+}
+.active {
+  color: #fc832c;
+}

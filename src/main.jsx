@@ -3,15 +3,23 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import Store from "./redux/store.js";
+import { store, persistor } from "./redux/store.js";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { Toaster } from "react-hot-toast";
+import AuthListener from "./AuthListener.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Provider store={Store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AuthListener>
+          <BrowserRouter>
+            <App />
+            <Toaster position="top-right" />
+          </BrowserRouter>
+        </AuthListener>
+      </PersistGate>
     </Provider>
   </StrictMode>
 );

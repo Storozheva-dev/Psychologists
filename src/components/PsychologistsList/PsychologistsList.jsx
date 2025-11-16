@@ -1,20 +1,15 @@
 import css from "./PsychologistsList.module.css";
 import PsychologistCard from "../PsychologistCard/PsychologistCard";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPsychologists } from "../../redux/psychologist/operation";
-import {
-  getPsychologists,
-  getPsychologistsLoadingStatus,
-  getPsychologistsError,
-} from "../../redux/psychologist/selectors";
-import Loader from "../Loader/Loader";
+import { useSelector } from "react-redux";
+import { getFilteredPsychologists } from "../../redux/psychologist/selectors";
 
-const PsychologistsList = () => {
+const PsychologistsList = ({ customList }) => {
   const [visible, setVisible] = useState(3);
 
-  const psychologists = useSelector(getPsychologists);
+  const psychologistsFromStore = useSelector(getFilteredPsychologists);
 
+  const psychologists = (customList ?? psychologistsFromStore) || [];
   const show = psychologists.slice(0, visible);
 
   return (
@@ -24,6 +19,7 @@ const PsychologistsList = () => {
           <PsychologistCard key={psych.id} item={psych} />
         ))}
       </ul>
+
       {visible < psychologists.length && (
         <button
           type="button"
@@ -33,7 +29,8 @@ const PsychologistsList = () => {
           Load more
         </button>
       )}
-      {visible === psychologists.length && (
+
+      {visible >= psychologists.length && psychologists.length > 0 && (
         <button type="button" disabled className={css.loadMore}>
           No more
         </button>

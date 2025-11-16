@@ -1,11 +1,25 @@
 import css from "./PsychologistCard.module.css";
 import { StarIcon, HeartIcon } from "../../icons";
 import { useState } from "react";
+import { getFavorites } from "../../redux/psychologist/selectors";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleFavorite } from "../../redux/psychologist/slice";
+import { selectUser } from "../../redux/auth/selectors";
+import toast from "react-hot-toast";
+import AppointmentModal from "../AppointmentModal/AppointmentModal";
 
 const PsychologistCard = ({ item }) => {
   const [hide, setHide] = useState(false);
+  const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
+
+  const dispatch = useDispatch();
+  const favorites = useSelector(getFavorites);
+  const user = useSelector(selectUser);
+
+  const isFavorite = favorites.includes(item.id);
 
   if (!item) return null;
+
   const {
     name,
     avatar_url,
@@ -19,6 +33,22 @@ const PsychologistCard = ({ item }) => {
     reviews,
   } = item;
 
+  const handleFavoriteClick = () => {
+    if (!user) {
+      toast.error("Log in to add psychologists to favorites", { icon: "🔒" });
+      return;
+    }
+    dispatch(toggleFavorite(item.id));
+  };
+
+  const handleAppointmentClick = () => {
+    if (!user) {
+      toast.error("Log in to make an appointment", { icon: "🔒" });
+      return;
+    }
+    setIsAppointmentOpen(true);
+  };
+
   return (
     <div className={css.card}>
       <div className={css.imageWrapper}>
@@ -31,7 +61,14 @@ const PsychologistCard = ({ item }) => {
           Price / 1 hour:{" "}
           <span className={css.priceSpan}>{price_per_hour}$</span>
         </span>
-        <HeartIcon />
+        <button
+          aria-label="Add to favorites"
+          type="button"
+          onClick={handleFavoriteClick}
+          className={isFavorite ? `${css.heart} ${css.active}` : css.heart}
+        >
+          <HeartIcon filled={isFavorite} />
+        </button>
       </div>
       <div className={css.info}>
         <p className={css.description}>Psychologist</p>
@@ -81,10 +118,22 @@ const PsychologistCard = ({ item }) => {
                 <p className={css.noReviews}>No reviews yet</p>
               )}
             </ul>
-            <button className={css.makeAppointment}>Make an appointment</button>
+            <button
+              className={css.makeAppointment}
+              type="button"
+              onClick={handleAppointmentClick}
+            >
+              Make an appointment
+            </button>
           </>
         )}
       </div>
+
+      <AppointmentModal
+        isOpen={isAppointmentOpen}
+        onClose={() => setIsAppointmentOpen(false)}
+        psychologist={item}
+      />
     </div>
   );
 };

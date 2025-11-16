@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import css from "./AuthForm.module.css";
+import { loginWithEmail, registerWithEmail } from "../../firebase/authService";
+import toast from "react-hot-toast";
 
 export default function AuthForm({ mode = "login", onSuccess }) {
   const schema = useMemo(() => {
@@ -38,6 +40,7 @@ export default function AuthForm({ mode = "login", onSuccess }) {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues:
@@ -47,9 +50,24 @@ export default function AuthForm({ mode = "login", onSuccess }) {
   });
 
   const onSubmit = async (data) => {
-    console.log("Submitted data:", data);
-    // оперейшн потім
-    onSuccess?.();
+    try {
+      let user;
+
+      if (mode === "login") {
+        user = await loginWithEmail(data.email, data.password);
+        const name = user.displayName || data.email;
+        toast.success(`Welcome, ${name}`);
+      } else {
+        user = await registerWithEmail(data.name, data.email, data.password);
+        toast.success(`Welcome, ${user.displayName || data.name}`);
+      }
+
+      reset();
+      onSuccess?.();
+    } catch (err) {
+      console.error(err);
+      toast.error(err.message || "Something went wrong");
+    }
   };
 
   return (
