@@ -4,7 +4,7 @@ Modern web platform for finding psychologists, exploring detailed profiles, mana
 
 ### 🔗 Live demo
 
-👉 **https://psychologists-hx65.vercel.app/favorites**
+👉 **https://psychologists-hx65.vercel.app**
 
 ---
 
