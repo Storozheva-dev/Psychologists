@@ -1,17 +1,19 @@
-// Modal.jsx
 import { useEffect } from "react";
 import css from "./Modal.module.css";
 import { CloseIcon } from "../../icons";
 
 export default function Modal({ isOpen, onClose, children, labelId }) {
   useEffect(() => {
-    if (!isOpen) return;
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
     };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 

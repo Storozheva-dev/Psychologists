@@ -1,6 +1,6 @@
 .wrapper {
-  min-height: calc(100vh - 80px);
-  padding: 40px 16px;
+  min-height: calc(100vh - 5rem);
+  padding: 2.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,15 +11,14 @@
 }
 
 .illustration {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .svg {
-  width: 220px;
+  width: 13.75rem;
   max-width: 70vw;
 }
 
-/* bubble */
 .bubble {
   fill: #ffe9cc;
 }
@@ -27,12 +26,11 @@
 .bubbleText {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
   fill: #d97706;
 }
 
-/* couch */
 .couch {
   fill: #fb923c;
 }
@@ -63,26 +61,26 @@
 }
 
 .title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   color: #b45309;
 }
 
 .subtitle {
-  max-width: 420px;
-  font-size: 14px;
+  max-width: 26.25rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   color: #5f5f5f;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .primaryBtn,
@@ -90,9 +88,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 14px;
+  padding: 0.625rem 1.125rem;
+  border-radius: 999rem;
+  font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease,
@@ -102,29 +100,34 @@
 .primaryBtn {
   background: #fc832c;
   color: #fffaf5;
-  box-shadow: 0 8px 18px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 0.5rem 1.125rem rgba(249, 115, 22, 0.25);
 }
 
 .primaryBtn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 0.625rem 1.375rem rgba(249, 115, 22, 0.35);
   background: #f37113;
 }
 
 .secondaryBtn {
   background: transparent;
   color: #ea580c;
-  border: 1px solid #fed7aa;
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #191a15;
 }
 
 .secondaryBtn:hover {
   border-color: #f97316;
-  background: #fff1e6;
+  background: #f2f2f2;
 }
 
 .smallText {
-  margin-top: 8px;
-  font-size: 12px;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
   color: #9a9a9a;
-  max-width: 420px;
+  max-width: 26.25rem;
 }

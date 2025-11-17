@@ -5,8 +5,9 @@ import { selectUser } from "../redux/auth/selectors";
 
 const Navigation = ({ className = "" }) => {
   const user = useSelector(selectUser);
+
   return (
-    <>
+    <nav aria-label="Main navigation">
       <ul className={`${css.navList} ${className}`}>
         <li className={css.navItem}>
           <NavLink
@@ -14,34 +15,40 @@ const Navigation = ({ className = "" }) => {
             className={({ isActive }) =>
               isActive ? `${css.link} ${css.active}` : css.link
             }
+            aria-current={({ isActive }) => (isActive ? "page" : undefined)}
           >
             Home
           </NavLink>
         </li>
+
         <li className={css.navItem}>
           <NavLink
             to="/psychologists"
             className={({ isActive }) =>
               isActive ? `${css.link} ${css.active}` : css.link
             }
+            aria-current={({ isActive }) => (isActive ? "page" : undefined)}
           >
             Psychologists
           </NavLink>
         </li>
-        <li className={css.navItem}>
-          {user && (
+
+        {user && (
+          <li className={css.navItem}>
             <NavLink
               to="/favorites"
               className={({ isActive }) =>
                 isActive ? `${css.link} ${css.active}` : css.link
               }
+              aria-current={({ isActive }) => (isActive ? "page" : undefined)}
             >
               Favorites
             </NavLink>
-          )}
-        </li>
+          </li>
+        )}
       </ul>
-    </>
+    </nav>
   );
 };
+
 export default Navigation;

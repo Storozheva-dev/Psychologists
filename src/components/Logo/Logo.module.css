@@ -1,10 +1,11 @@
 .logo {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: #fc832c;
 }
+
 .partLogo {
   font-weight: 600;
   color: #191a15;

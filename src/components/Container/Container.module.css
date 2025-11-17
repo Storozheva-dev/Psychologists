@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 87.5rem;
   margin: 0 auto;
   padding-inline: clamp(1rem, 6vw, 8rem);
   box-sizing: border-box;

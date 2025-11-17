@@ -3,66 +3,76 @@
   align-items: center;
   border-bottom: 1px solid rgba(25, 26, 21, 0.1);
 }
+
 .nav {
-  padding-left: 130px;
-  padding-right: 345px;
+  padding-left: 8.125rem;
+  padding-right: 21.5625rem;
 }
+
 .logo {
-  margin-left: 128px;
+  margin-left: 8rem;
 }
+
 .authButtons {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
 }
+
 .logBtn {
   display: flex;
   align-items: center;
   border: 1px solid rgba(25, 26, 21, 0.2);
-  border-radius: 30px;
-  padding: 14px 39px;
-  width: 124px;
-  height: 48px;
+  border-radius: 1.875rem;
+  padding: 0.875rem 2.4375rem;
+  width: 7.75rem;
+  height: 3rem;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: #191a15;
   transition: all 0.3s ease;
 }
+
 .logBtn:hover {
   border-color: #fc832c;
 }
+
 .logBtn:active {
   scale: 0.9;
 }
+
 .regBtn {
   display: flex;
   align-items: center;
   background: #fc832c;
-  border-radius: 30px;
-  padding: 14px 40px;
-  width: 171px;
-  height: 48px;
+  border-radius: 1.875rem;
+  padding: 0.875rem 2.5rem;
+  width: 10.6875rem;
+  height: 3rem;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: #fbfbfb;
   transition: all 0.3s ease;
 }
+
 .regBtn:hover {
   background: #f37113;
 }
+
 .regBtn:active {
   scale: 0.9;
 }
+
 .logOutBtn {
   border: 1px solid rgba(25, 26, 21, 0.2);
-  border-radius: 30px;
-  height: 48px;
-  width: 135px;
+  border-radius: 1.875rem;
+  height: 3rem;
+  width: 8.4375rem;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: #191a15;
@@ -71,27 +81,32 @@
   justify-content: center;
   transition: all 0.3s ease;
 }
+
 .logOutBtn:hover {
   border-color: #fc832c;
 }
+
 .logOutBtn:active {
   scale: 0.9;
 }
+
 .userBlock {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 1.75rem;
 }
+
 .userInfo {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 }
+
 .userIcon {
   background: #fc832c;
-  border-radius: 10px;
-  width: 40px;
-  height: 40px;
+  border-radius: 0.625rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: white;
-  padding: 8px;
+  padding: 0.5rem;
 }

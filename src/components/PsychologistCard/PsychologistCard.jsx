@@ -16,9 +16,9 @@ const PsychologistCard = ({ item }) => {
   const favorites = useSelector(getFavorites);
   const user = useSelector(selectUser);
 
-  const isFavorite = favorites.includes(item.id);
-
   if (!item) return null;
+
+  const isFavorite = favorites.includes(item.id);
 
   const {
     name,
@@ -32,6 +32,9 @@ const PsychologistCard = ({ item }) => {
     initial_consultation,
     reviews,
   } = item;
+
+  const detailsId = `psychologist-${item.id}-details`;
+  const reviewsId = `psychologist-${item.id}-reviews`;
 
   const handleFavoriteClick = () => {
     if (!user) {
@@ -50,29 +53,51 @@ const PsychologistCard = ({ item }) => {
   };
 
   return (
-    <div className={css.card}>
+    <article
+      className={css.card}
+      aria-label={`Psychologist ${name}, rating ${rating}, price ${price_per_hour} dollars per hour`}
+    >
       <div className={css.imageWrapper}>
-        <img className={css.image} src={avatar_url} alt="Psychologist" />
+        <img
+          className={css.image}
+          src={avatar_url}
+          alt={name ? `${name}'s profile photo` : "Psychologist profile photo"}
+        />
       </div>
+
       <div className={css.starPrice}>
-        <StarIcon />
-        <span className={css.rating}>Rating: {rating}</span>
+        <StarIcon aria-hidden="true" />
+        <span className={css.rating}>
+          Rating: <span aria-label={`Rating ${rating} out of 5`}>{rating}</span>
+        </span>
         <span className={css.price}>
           Price / 1 hour:{" "}
-          <span className={css.priceSpan}>{price_per_hour}$</span>
+          <span
+            className={css.priceSpan}
+            aria-label={`${price_per_hour} dollars per hour`}
+          >
+            {price_per_hour}$
+          </span>
         </span>
         <button
-          aria-label="Add to favorites"
           type="button"
           onClick={handleFavoriteClick}
           className={isFavorite ? `${css.heart} ${css.active}` : css.heart}
+          aria-label={
+            isFavorite
+              ? `Remove ${name} from favorites`
+              : `Add ${name} to favorites`
+          }
+          aria-pressed={isFavorite}
         >
-          <HeartIcon filled={isFavorite} />
+          <HeartIcon filled={isFavorite} aria-hidden="true" />
         </button>
       </div>
+
       <div className={css.info}>
         <p className={css.description}>Psychologist</p>
         <h2 className={css.name}>{name}</h2>
+
         <ul className={css.detailsList}>
           <li className={css.detail}>
             Experience: <span className={css.detailSpan}>{experience}</span>
@@ -89,24 +114,36 @@ const PsychologistCard = ({ item }) => {
             <span className={css.detailSpan}>{initial_consultation}</span>
           </li>
         </ul>
+
         <p className={css.about}>{about}</p>
-        <button className={css.readMore} onClick={() => setHide(!hide)}>
+
+        <button
+          className={css.readMore}
+          type="button"
+          onClick={() => setHide(!hide)}
+          aria-expanded={hide}
+          aria-controls={detailsId}
+        >
           {hide ? "Read less" : "Read more"}
         </button>
 
         {hide && (
-          <>
-            <ul className={css.reviews}>
+          <div id={detailsId}>
+            <ul
+              className={css.reviews}
+              id={reviewsId}
+              aria-label={`Reviews for ${name}`}
+            >
               {reviews.map((review, index) => (
                 <li key={index}>
                   <div className={css.userLine}>
-                    <div className={css.userAvatar}>
+                    <div className={css.userAvatar} aria-hidden="true">
                       {review.reviewer?.[0]?.toUpperCase()}
                     </div>
                     <div className={css.userStar}>
                       <p className={css.userName}>{review.reviewer}</p>
                       <p className={css.userStarsCount}>
-                        <StarIcon />
+                        <StarIcon aria-hidden="true" />
                         {review.rating}
                       </p>
                     </div>
@@ -118,14 +155,16 @@ const PsychologistCard = ({ item }) => {
                 <p className={css.noReviews}>No reviews yet</p>
               )}
             </ul>
+
             <button
               className={css.makeAppointment}
               type="button"
               onClick={handleAppointmentClick}
+              aria-label={`Make an appointment with ${name}`}
             >
               Make an appointment
             </button>
-          </>
+          </div>
         )}
       </div>
 
@@ -134,7 +173,7 @@ const PsychologistCard = ({ item }) => {
         onClose={() => setIsAppointmentOpen(false)}
         psychologist={item}
       />
-    </div>
+    </article>
   );
 };
 

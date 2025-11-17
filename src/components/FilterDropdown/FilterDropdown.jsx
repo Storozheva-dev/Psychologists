@@ -5,19 +5,52 @@ import { FilterDown, FilterUp } from "../../icons";
 const FilterDropdown = ({ options, selected, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const selectedOption = options.find((option) => option.value === selected);
+
+  const handleOptionSelect = (value) => {
+    onSelect(value);
+    setIsOpen(false);
+  };
+
+  const handleOptionKeyDown = (e, value) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleOptionSelect(value);
+    }
+    if (e.key === "Escape") {
+      e.preventDefault();
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div className={css.filterDropdown}>
-      <p className={css.filterDropdownLabel}>Filters</p>
+      <p className={css.filterDropdownLabel} id="filter-dropdown-label">
+        Filters
+      </p>
+
       <button
         className={css.filterDropdownButton}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        aria-labelledby="filter-dropdown-label"
       >
-        {options.find((option) => option.value === selected)?.label}
-        {isOpen ? <FilterUp /> : <FilterDown />}
+        {selectedOption?.label}
+        {isOpen ? (
+          <FilterUp aria-hidden="true" />
+        ) : (
+          <FilterDown aria-hidden="true" />
+        )}
       </button>
+
       {isOpen && (
-        <ul className={css.filterDropdownList}>
+        <ul
+          className={css.filterDropdownList}
+          role="listbox"
+          aria-label="Filter options"
+        >
           {options.map((option) => (
             <li
               key={option.value}
@@ -26,10 +59,11 @@ const FilterDropdown = ({ options, selected, onSelect }) => {
                   ? `${css.filterDropdownItem} ${css.active}`
                   : css.filterDropdownItem
               }
-              onClick={() => {
-                onSelect(option.value);
-                setIsOpen(false);
-              }}
+              role="option"
+              aria-selected={selected === option.value}
+              tabIndex={0}
+              onClick={() => handleOptionSelect(option.value)}
+              onKeyDown={(e) => handleOptionKeyDown(e, option.value)}
             >
               {option.label}
             </li>

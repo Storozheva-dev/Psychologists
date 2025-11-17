@@ -47,19 +47,25 @@ const Header = () => {
   };
 
   return (
-    <div className={css.header}>
-      <Link to="/" className={css.logoLink}>
+    <header className={css.header}>
+      <Link to="/" className={css.logoLink} aria-label="Go to home page">
         <Logo className={css.logo} />
       </Link>
 
       <Navigation className={css.nav} />
 
       {!user && (
-        <div className={css.authButtons}>
+        <div
+          className={css.authButtons}
+          aria-label="Authentication"
+          role="group"
+        >
           <button
             type="button"
             className={css.logBtn}
             onClick={() => openModal("login")}
+            aria-haspopup="dialog"
+            aria-expanded={isOpen && mode === "login"}
           >
             Log in
           </button>
@@ -68,6 +74,8 @@ const Header = () => {
             type="button"
             className={css.regBtn}
             onClick={() => openModal("register")}
+            aria-haspopup="dialog"
+            aria-expanded={isOpen && mode === "register"}
           >
             Registration
           </button>
@@ -76,8 +84,11 @@ const Header = () => {
 
       {user && (
         <div className={css.userBlock}>
-          <div className={css.userInfo}>
-            <PersonIcon className={css.userIcon} />
+          <div
+            className={css.userInfo}
+            aria-label={`Logged in as ${user.displayName || user.email}`}
+          >
+            <PersonIcon className={css.userIcon} aria-hidden="true" />
             <span className={css.userName}>
               {user.displayName || user.email}
             </span>
@@ -96,7 +107,7 @@ const Header = () => {
       <Modal isOpen={isOpen} onClose={closeModal} labelId="auth-modal-title">
         {mode && <AuthForm mode={mode} onSuccess={handleAuthSuccess} />}
       </Modal>
-    </div>
+    </header>
   );
 };
 

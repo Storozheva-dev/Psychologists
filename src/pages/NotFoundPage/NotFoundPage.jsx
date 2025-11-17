@@ -4,7 +4,7 @@ import css from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {
   return (
-    <div className={css.wrapper}>
+    <main className={css.wrapper} aria-labelledby="not-found-title">
       <div className={css.illustration} aria-hidden="true">
         <svg
           className={css.svg}
@@ -72,7 +72,7 @@ const NotFoundPage = () => {
         </svg>
       </div>
 
-      <h1 className={css.title}>
+      <h1 className={css.title} id="not-found-title">
         Oops, this page is taking a mental health break
       </h1>
 
@@ -94,7 +94,7 @@ const NotFoundPage = () => {
         If you’re absolutely sure this page should be here, feel free to tell
         your developer. Or your therapist. Or both.
       </p>
-    </div>
+    </main>
   );
 };
 

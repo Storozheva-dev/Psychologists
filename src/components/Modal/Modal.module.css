@@ -10,27 +10,31 @@
   align-items: center;
   z-index: 1000;
 }
+
 .modal {
   background: #fbfbfb;
-  border-radius: 30px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: 565px;
+  border-radius: 1.875rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  max-width: 35.3125rem;
   width: 100%;
-  padding: 64px;
+  padding: 4rem;
   position: relative;
 }
+
 .closeBtn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1.25rem;
+  right: 1.25rem;
   background: none;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .closeBtn:hover {
   transform: scale(1.1);
 }
+
 .closeBtn:active {
   transform: scale(0.9);
 }

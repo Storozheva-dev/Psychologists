@@ -1,12 +1,15 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import css from "./AuthForm.module.css";
 import { loginWithEmail, registerWithEmail } from "../../firebase/authService";
 import toast from "react-hot-toast";
+import { ClosedEyeIcon, OpenEyeIcon } from "../../icons";
 
-export default function AuthForm({ mode = "login", onSuccess }) {
+function AuthForm({ mode = "login", onSuccess }) {
+  const [showPassword, setShowPassword] = useState(false);
+
   const schema = useMemo(() => {
     if (mode === "login") {
       return yup.object({
@@ -71,53 +74,115 @@ export default function AuthForm({ mode = "login", onSuccess }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} noValidate aria-busy={isSubmitting}>
       {mode === "register" && (
         <div>
-          <h2 className={css.title}>Registration</h2>
-          <p className={css.description}>
+          <h2 className={css.title} id="auth-register-title">
+            Registration
+          </h2>
+          <p className={css.description} id="auth-register-description">
             Thank you for your interest in our platform! Please provide your
             name, email and password.
           </p>
+
           <div className={css.inputGroup}>
+            {/* Name */}
             <div className={css.inputWrap}>
               <input
                 className={css.input}
                 {...register("name")}
+                id="auth-register-name"
                 type="text"
                 placeholder="Name"
+                aria-label="Name"
+                aria-invalid={!!errors.name}
+                aria-describedby={
+                  errors.name ? "auth-register-name-error" : undefined
+                }
+                autoComplete="name"
               />
               {errors.name && (
-                <p className={css.error}>{errors.name.message}</p>
+                <p
+                  className={css.error}
+                  id="auth-register-name-error"
+                  role="alert"
+                >
+                  {errors.name.message}
+                </p>
               )}
             </div>
+
+            {/* Email */}
             <div className={css.inputWrap}>
               <input
                 className={css.input}
                 {...register("email")}
+                id="auth-register-email"
                 type="email"
                 placeholder="Email"
+                aria-label="Email"
+                aria-invalid={!!errors.email}
+                aria-describedby={
+                  errors.email ? "auth-register-email-error" : undefined
+                }
+                autoComplete="email"
               />
               {errors.email && (
-                <p className={css.error}>{errors.email.message}</p>
+                <p
+                  className={css.error}
+                  id="auth-register-email-error"
+                  role="alert"
+                >
+                  {errors.email.message}
+                </p>
               )}
             </div>
+
+            {/* Password */}
             <div className={css.inputWrap}>
               <input
                 className={css.input}
                 {...register("password")}
-                type="password"
+                id="auth-register-password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
+                aria-label="Password"
+                aria-invalid={!!errors.password}
+                aria-describedby={
+                  errors.password ? "auth-register-password-error" : undefined
+                }
+                autoComplete="new-password"
               />
+              <button
+                type="button"
+                className={css.eyeBtn}
+                onClick={() => setShowPassword((prev) => !prev)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-pressed={showPassword}
+              >
+                {showPassword ? (
+                  <OpenEyeIcon aria-hidden="true" />
+                ) : (
+                  <ClosedEyeIcon aria-hidden="true" />
+                )}
+              </button>
               {errors.password && (
-                <p className={css.error}>{errors.password.message}</p>
+                <p
+                  className={css.error}
+                  id="auth-register-password-error"
+                  role="alert"
+                >
+                  {errors.password.message}
+                </p>
               )}
             </div>
           </div>
+
           <button
             className={css.submitBtn}
             type="submit"
             disabled={isSubmitting}
+            aria-describedby="auth-register-title auth-register-description"
           >
             {mode === "login" ? "Log In" : "Sign Up"}
           </button>
@@ -126,39 +191,86 @@ export default function AuthForm({ mode = "login", onSuccess }) {
 
       {mode === "login" && (
         <div>
-          <h2 className={css.title}>Log In</h2>
-          <p className={css.description}>
+          <h2 className={css.title} id="auth-login-title">
+            Log In
+          </h2>
+          <p className={css.description} id="auth-login-description">
             Welcome back! Please enter your credentials to access your account
             and continue your search for a psychologist.
           </p>
+
           <div className={css.inputGroup}>
+            {/* Email */}
             <div className={css.inputWrap}>
               <input
                 className={css.input}
                 {...register("email")}
+                id="auth-login-email"
                 type="email"
                 placeholder="Email"
+                aria-label="Email"
+                aria-invalid={!!errors.email}
+                aria-describedby={
+                  errors.email ? "auth-login-email-error" : undefined
+                }
+                autoComplete="email"
               />
               {errors.email && (
-                <p className={css.error}>{errors.email.message}</p>
+                <p
+                  className={css.error}
+                  id="auth-login-email-error"
+                  role="alert"
+                >
+                  {errors.email.message}
+                </p>
               )}
             </div>
+
+            {/* Password */}
             <div className={css.inputWrap}>
               <input
                 className={css.input}
                 {...register("password")}
-                type="password"
+                id="auth-login-password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
+                aria-label="Password"
+                aria-invalid={!!errors.password}
+                aria-describedby={
+                  errors.password ? "auth-login-password-error" : undefined
+                }
+                autoComplete="current-password"
               />
+              <button
+                type="button"
+                className={css.eyeBtn}
+                onClick={() => setShowPassword((prev) => !prev)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-pressed={showPassword}
+              >
+                {showPassword ? (
+                  <OpenEyeIcon aria-hidden="true" />
+                ) : (
+                  <ClosedEyeIcon aria-hidden="true" />
+                )}
+              </button>
               {errors.password && (
-                <p className={css.error}>{errors.password.message}</p>
+                <p
+                  className={css.error}
+                  id="auth-login-password-error"
+                  role="alert"
+                >
+                  {errors.password.message}
+                </p>
               )}
             </div>
           </div>
+
           <button
             className={css.submitBtn}
             type="submit"
             disabled={isSubmitting}
+            aria-describedby="auth-login-title auth-login-description"
           >
             {mode === "login" ? "Log In" : "Register"}
           </button>
@@ -167,3 +279,5 @@ export default function AuthForm({ mode = "login", onSuccess }) {
     </form>
   );
 }
+
+export default AuthForm;

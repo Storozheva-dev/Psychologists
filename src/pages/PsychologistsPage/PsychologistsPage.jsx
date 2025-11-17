@@ -29,17 +29,35 @@ const PsychologistsPage = () => {
   }, [dispatch]);
 
   if (isLoading) return <Loader />;
-  if (error) return <p>{error}</p>;
+
+  if (error) {
+    return (
+      <Container className={css.wrapper}>
+        <main aria-labelledby="psychologists-page-title">
+          <h1 id="psychologists-page-title" className={css.title}>
+            Psychologists
+          </h1>
+          <p role="alert">{error}</p>
+        </main>
+      </Container>
+    );
+  }
 
   return (
     <Container className={css.wrapper}>
-      <FilterDropdown
-        options={FILTER_OPTIONS}
-        selected={selected}
-        onSelect={(value) => dispatch(setPsychologistsFilter(value))}
-      />
+      <main aria-labelledby="psychologists-page-title">
+        <h1 id="psychologists-page-title" className={css.title}>
+          Psychologists
+        </h1>
 
-      <PsychologistsList items={psychologists} />
+        <FilterDropdown
+          options={FILTER_OPTIONS}
+          selected={selected}
+          onSelect={(value) => dispatch(setPsychologistsFilter(value))}
+        />
+
+        <PsychologistsList customList={psychologists} />
+      </main>
     </Container>
   );
 };

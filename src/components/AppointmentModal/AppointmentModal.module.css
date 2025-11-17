@@ -11,10 +11,10 @@
 
 .modal {
   width: 90%;
-  max-width: 480px;
-  background: #fff;
-  border-radius: 16px;
-  padding: 32px;
+  max-width: 30rem;
+  background: #f2f2f2;
+  border-radius: 1rem;
+  padding: 2rem;
   position: relative;
   animation: fadeIn 0.25s ease;
 }
@@ -32,9 +32,9 @@
 
 .closeBtn {
   position: absolute;
-  top: 16px;
-  right: 20px;
-  font-size: 26px;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.625rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -42,46 +42,50 @@
 }
 
 .title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #2d2d2d;
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #191a15;
+  margin-bottom: 1.25rem;
 }
 
 .subtitle {
-  font-size: 14px;
-  color: #6b6b6b;
-  margin-bottom: 22px;
-  line-height: 1.5;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+  margin-bottom: 2.5rem;
 }
 
 .psychologist {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
+  gap: 0.75rem;
+  margin-bottom: 1.375rem;
 }
 
 .avatar {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .psychInfo .label {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #9a9a9a;
 }
 
 .name {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: #333;
 }
+
 .avatarFallback {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   background: #ffe3c2;
   display: flex;
@@ -89,5 +93,11 @@
   justify-content: center;
   font-weight: 600;
   color: #b45309;
-  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+.psychInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
 }

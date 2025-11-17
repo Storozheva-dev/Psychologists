@@ -18,7 +18,6 @@ import {
 
 import FILTER_OPTIONS from "../../constants/filterOptions.js";
 import { setPsychologistsFilter } from "../../redux/psychologist/slice";
-import { set } from "firebase/database";
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
@@ -37,22 +36,38 @@ const FavoritesPage = () => {
   }, [dispatch, psychologists]);
 
   if (isLoading) return <Loader />;
-  if (error) return <p>{error}</p>;
+
+  if (error) {
+    return (
+      <Container>
+        <main aria-labelledby="favorites-page-title">
+          <h1 id="favorites-page-title">Favorite psychologists</h1>
+          <p role="alert">{error}</p>
+        </main>
+      </Container>
+    );
+  }
 
   return (
     <Container>
-      {favoritesPsychologists.length === 0 ? (
-        <p>No favorites yet</p>
-      ) : (
-        <>
-          <FilterDropdown
-            options={FILTER_OPTIONS}
-            selected={selected}
-            onSelect={(value) => dispatch(setPsychologistsFilter(value))}
-          />
-          <PsychologistsList customList={favoritesPsychologists} />
-        </>
-      )}
+      <main aria-labelledby="favorites-page-title">
+        <h1 id="favorites-page-title">Favorite psychologists</h1>
+
+        {favoritesPsychologists.length === 0 ? (
+          <p role="status" aria-live="polite">
+            No favorites yet
+          </p>
+        ) : (
+          <>
+            <FilterDropdown
+              options={FILTER_OPTIONS}
+              selected={selected}
+              onSelect={(value) => dispatch(setPsychologistsFilter(value))}
+            />
+            <PsychologistsList customList={favoritesPsychologists} />
+          </>
+        )}
+      </main>
     </Container>
   );
 };

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
+import { TimeIcon } from "../../icons";
 
 const schema = yup.object({
   name: yup
@@ -43,7 +44,6 @@ export default function AppointmentForm({ psychologist, onSuccess }) {
 
   const onSubmit = async (data) => {
     try {
-      // тут потім приліпиш відправку на бек
       console.log("Appointment:", {
         ...data,
         psychologistId: psychologist.id,
@@ -95,7 +95,9 @@ export default function AppointmentForm({ psychologist, onSuccess }) {
             {...register("time")}
             onClick={() => setTimeOpen((prev) => !prev)}
           />
-          <span className={css.clockIcon}>🕒</span>
+          <span className={css.clockIcon}>
+            <TimeIcon />
+          </span>
           {errors.time && <p className={css.error}>{errors.time.message}</p>}
 
           {timeOpen && (

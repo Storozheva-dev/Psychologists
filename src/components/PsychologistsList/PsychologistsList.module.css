@@ -1,33 +1,38 @@
 .psychList {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 2rem;
 }
+
 .loadMore {
   background: #fc832c;
-  border-radius: 30px;
-  padding: 14px 48px;
-  height: 48px;
+  border-radius: 1.875rem;
+  padding: 0.875rem 3rem;
+  height: 3rem;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: #fbfbfb;
   transition: all 0.3s ease;
-  margin-top: 64px;
-  margin-bottom: 100px;
+  margin-top: 4rem;
+  margin-bottom: 6.25rem;
 }
+
 .loadMore:hover {
   background: #f37113;
 }
+
 .loadMore:active {
   transform: scale(0.9);
 }
+
 .wrap {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
 .loadMore:disabled {
   pointer-events: none;
   opacity: 0.5;
