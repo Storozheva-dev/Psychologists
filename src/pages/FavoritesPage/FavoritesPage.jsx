@@ -51,8 +51,6 @@ const FavoritesPage = () => {
   return (
     <Container>
       <main aria-labelledby="favorites-page-title">
-        <h1 id="favorites-page-title">Favorite psychologists</h1>
-
         {favoritesPsychologists.length === 0 ? (
           <p role="status" aria-live="polite">
             No favorites yet

@@ -1,16 +1,178 @@
-# React + Vite
+# 🌿 Psychologists Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern web platform for finding psychologists, exploring detailed profiles, managing favorites, and booking appointments online.
 
-Currently, two official plugins are available:
+### 🔗 Live demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 **https://psychologists-hx65.vercel.app/favorites**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 🔐 Authentication
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Firebase email/password auth
+- Auto-login listener
+- Private & restricted routes
+
+### 🧠 Psychologists Directory
+
+- Dynamic list from server
+- Detailed psychologist cards
+- “Read more / Read less” descriptions
+- Rating, price, experience, specialization
+
+### ❤️ Favorites
+
+- Add/remove favorites
+- Persistent with Redux Persist
+
+### 🔎 Filtering & Sorting
+
+- A → Z / Z → A
+- Price filters
+- Popular / Not popular
+- Show all
+
+### 📅 Appointment Modal
+
+- React Hook Form
+- Yup validation
+- Time picker
+- Controlled inputs
+- Toast notifications
+
+### 🎨 UI
+
+- CSS Modules
+- Loader
+- Responsive layout
+- Smooth animations
+
+---
+
+## 🛠️ Tech Stack
+
+| Category      | Tools                        |
+| ------------- | ---------------------------- |
+| Framework     | React 19, Vite               |
+| Routing       | React Router v7              |
+| State         | Redux Toolkit, Redux Persist |
+| Forms         | React Hook Form + Yup        |
+| Auth          | Firebase Authentication      |
+| Notifications | React Hot Toast              |
+| Styling       | CSS Modules                  |
+| Deployment    | Vercel                       |
+
+---
+
+## 📂 Project Structure
+
+```txt
+src
+│  App.jsx
+│  main.jsx
+│  index.css
+│
+├─assets/
+├─components/
+│    AppointmentForm/
+│    AppointmentModal/
+│    AuthForm/
+│    Container/
+│    FilterDropdown/
+│    HeroImg/
+│    HeroTab/
+│    ImgWrap/
+│    Loader/
+│    Logo/
+│    Modal/
+│    PeopleBlock/
+│    PsychologistCard/
+│    PsychologistsList/
+│    QuestionBlock/
+│
+├─constants/
+├─firebase/
+├─icons/
+├─layout/
+├─pages/
+├─redux/
+└─services/
+```
+
+## 📸 Screenshots
+
+All images are stored in `/public/screenshots/`.
+The gallery below shows the main user flows of the application.
+
+<table>
+  <tr>
+    <td align="center">
+      <strong>Home Page</strong><br />
+      <img src="public/screenshots/home.png" alt="Home Page" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+    <td align="center">
+      <strong>Login Modal</strong><br />
+      <img src="public/screenshots/login.png" alt="Login Modal" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Registration Modal</strong><br />
+      <img src="public/screenshots/register.png" alt="Registration Modal" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+    <td align="center">
+      <strong>Psychologists List</strong><br />
+      <img src="public/screenshots/psychologists-list.png" alt="Psychologists List" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Psychologist Details</strong><br />
+      <img src="public/screenshots/psychologist-details.png" alt="Psychologist Details" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+    <td align="center">
+      <strong>Favorites Page</strong><br />
+      <img src="public/screenshots/favorites.png" alt="Favorites Page" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Appointment Modal</strong><br />
+      <img src="public/screenshots/appointment-modal.png" alt="Appointment Modal" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+    <td align="center">
+      <strong>404 Page</strong><br />
+      <img src="public/screenshots/not-found.png" alt="404 Page" style="max-width: 100%; border-radius: 12px;" />
+    </td>
+  </tr>
+</table>
+```
+
+## 📦 Installation & Scripts
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
