@@ -46,9 +46,7 @@ const PsychologistsPage = () => {
   return (
     <Container className={css.wrapper}>
       <main aria-labelledby="psychologists-page-title">
-        <h1 id="psychologists-page-title" className={css.title}>
-          Psychologists
-        </h1>
+    
 
         <FilterDropdown
           options={FILTER_OPTIONS}

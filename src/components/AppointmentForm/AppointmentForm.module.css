@@ -15,6 +15,7 @@
 .row {
   display: flex;
   gap: 0.625rem;
+  flex-wrap: wrap;
 }
 
 .input,
@@ -25,7 +26,7 @@
   border: 1px solid rgba(25, 26, 21, 0.1);
   background: #f2f2f2;
   font-size: 0.875rem;
-  height: 3.25rem;
+  min-height: 3.25rem;
   outline: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
@@ -36,7 +37,6 @@
 }
 
 .textarea {
-  min-height: 5rem;
   resize: none;
 }
 

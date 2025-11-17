@@ -1,82 +1,92 @@
 .title {
   font-weight: 500;
-  font-size: 40px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: #191a15;
-  margin-bottom: 26px;
+  margin-bottom: 1.625rem;
 }
+
 .description {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.25;
   color: rgba(25, 26, 21, 0.5);
-  margin-bottom: 41px;
+  margin-bottom: 2.5625rem;
 }
+
 .submitBtn {
   background: #fc832c;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  border-radius: 30px;
-  height: 52px;
+  border-radius: 1.875rem;
+  height: 3.25rem;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: #fbfbfb;
   transition: all 0.3s ease;
 }
+
 .submitBtn:hover {
   background: #f37113;
 }
+
 .submitBtn:active {
   scale: 0.9;
 }
+
 .submitBtn:disabled {
   background: rgba(252, 131, 44, 0.5);
   cursor: not-allowed;
 }
+
 .input {
   border: 1px solid rgba(25, 26, 21, 0.1);
-  border-radius: 12px;
-  padding-top: 16px;
-  padding-left: 18px;
-  padding-bottom: 16px;
+  border-radius: 0.75rem;
+  padding: 1rem 1.125rem;
   width: 100%;
-  height: 52px;
+  height: 3.25rem;
   transition: all 0.3s ease;
 }
+
 .input:focus {
   outline: none;
   border-color: #f37113;
 }
+
 .input::placeholder {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.25;
   color: #191a15;
 }
+
 .inputGroup {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-bottom: 40px;
+  gap: 1.125rem;
+  margin-bottom: 2.5rem;
 }
+
 .inputWrap {
   position: relative;
 }
+
 .error {
   position: absolute;
-  bottom: -18px;
+  bottom: -1.125rem;
   left: 0;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: red;
 }
+
 .eyeBtn {
   position: absolute;
-  right: 14px;
+  right: 0.875rem;
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
